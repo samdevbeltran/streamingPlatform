@@ -1,0 +1,151 @@
+[
+    {
+        "header" : {
+                "id" : "HermanoStoryMakers",
+                "name":"HermanoStoryMakers",
+                "alt" : "picture of hermanos story makers",
+                "text" : "Welcome !! Sam and his brother Migue want to share their art with you !!" ,
+                "link": "https://www.youtube.com/watch?v=h9EuVuyg9w8",
+                "photo" : "../img/hermanoStoryMakersBanner2.jpeg"
+            }
+    },    
+    {
+        "catalog" :[
+            {
+                "id" : "behindthebrush",
+                "name":"Behind the brush",
+                "alt" : "name of the picture",
+                "text" : "Sam and Migue are creating and publishing a comic, join them and be part of this amazing journey " ,
+                "link": "https://www.youtube.com/embed/d1ZMqpVzWG4",
+                "photo" : "img/series/behindBrush.jpeg"
+            },
+            {
+                "id" : "travelsandstories",
+                "name":"Travels and stories",
+                "alt" : "name of the picture",
+                "text" : "Do you like adventure ?!!! join sam and migue and travel together to the places that are the source of inspiration for great stories" ,
+                "link": "https://www.youtube.com/embed/-bBQWODoGUo",
+                "photo" : "img/series/travelStories.jpeg"
+            },
+            {
+                "id" : "reviews",
+                "name":"Reviews",
+                "alt" : "name of the picture",
+                "text" : "Sam and Migue love to whatch extraordinary movies, stay to know what they think and what they learn to apply in future stories" ,
+                "link": "https://www.youtube.com/embed/mk2sehfyp80",
+                "photo" : "img/series/reviews.jpeg"
+            },
+            {
+                "id" : "legionOfSinners",
+                "name":"Legion Of Sinners",
+                "alt" : "name of the picture",
+                "text" : "Ready to read Sam and Migue's comic book? click here and enjoy an amazing story!!" ,
+                "link": "https://www.youtube.com/embed/eqVpsanrY4Y",
+                "photo" : "img/series/portadaComic.png"
+            }
+        ]
+    }
+    , 
+    {
+        "series" :[ 
+                {
+                    "id" : "behindthebrush",
+                    "episodes" : [
+                        {
+                            "name":"7 steps to create a masterpiece",
+                            "alt" : "name of the picture",
+                            "text" : "How do we make the comic? or what is the process? We'll show you the development of Legion of Sinners, the amazing story we are creating, join us and enjoy!!" ,
+                            "link": "https://www.youtube.com/embed/d1ZMqpVzWG4",
+                            "photo" : "img/behinBrush/masterpiece7steps.png"
+                        },
+                        {
+                            "name":"How the project started",
+                            "alt" : "How the project started",
+                            "text" : "Sam and Migue will talk a little more about how they started this project, and will also reveal the title of the comic." ,
+                            "link": "https://www.youtube.com/embed/1jGsW66mkvA",
+                            "photo" : "img/behinBrush/projectStarted.png"
+                        },
+                        {
+                            "name":"Our comic first episode is already published",
+                            "alt" : "Our comic first episode is already published",
+                            "text" : "In this video Sam and Migue will show you how to subscribe and see the first chapter of their comic, completely FREE, on the tapastic platform, and you will also see the criteria they used to guarantee the development of this first chapter" ,
+                            "link": "https://www.youtube.com/embed/n706sE_F--0",
+                            "photo" : "img/behinBrush/comicpublished.png"
+                        },
+                        {
+                            "name":"Developing our comic",
+                            "alt" : "Developing our comic",
+                            "text" : "Maybe you are already familiar with the Templars, the Crusaders and even with Assasins Creed (the video game), in this video Sam and Migue will talk more about their comic so you can enjoy it." ,
+                            "link": "https://www.youtube.com/embed/2CdGzzUttHQ",
+                            "photo" : "img/behinBrush/DevelopingComc.png"
+                        }
+
+                    ]
+                    
+                },
+                {
+                    "id" : "travelsandstories",
+                    "episodes" :
+                        [
+                            {
+                                "name":"Sam and Migue traveled to brazil..did they arrived?",
+                                "alt" : "name of the picture",
+                                "text" : "Finally the day came!!!!!!! Sam and Migue didn't believe that the time would finally come, they never thought that they would go to know that place in person, so many times watching it on television and it became reality, who said that you cannot travel in quarantine ???? Obviously you have to take care of yourself, but life keeps going ..." ,
+                                "link": "https://www.youtube.com/embed/-bBQWODoGUo",
+                                "photo" : "img/travelStories/brazil.png"
+                            },
+                            {
+                                "name":"Book fair, was it worth it?!!",
+                                "alt" : "name of the picture",
+                                "text" : "How do we make the comic? or what is the process? We'll show you the development of Legion of Sinners, the amazing story we are creating, join us and enjoy!!" ,
+                                "link": "https://www.youtube.com/embed/-lYlFVfKKwQ",
+                                "photo" : "img/travelStories/book.png"
+                            }
+                        ]
+                },
+                {
+                    "id" : "reviews",
+                    "episodes" : 
+                        [
+                            
+                            {
+                                "name":"kimi no nawa, the review",
+                                "alt" : "name of the picture",
+                                "text" : "As creators of great stories, Sam and Migue explore other movies and learn from the best. See what they think of this Japanese movie" ,
+                                "link": "https://www.youtube.com/embed/pYa-_DTNPks",
+                                "photo" : "img/reviews/yourName.png"
+                            },
+                            {
+                                "name":"Coroline, a disturbing masterpiece",
+                                "alt" : "name of the picture",
+                                "text" : "Coroline, a movie for kids, really? !! Sam and Migue give their opinion about it, what do you think they will say?" ,
+                                "link": "https://www.youtube.com/embed/yaNCsQ6Cbgs",
+                                "photo" : "img/reviews/coroline.png"
+                            },
+                            {
+                                "name":"Falcon and the winter soldier, review",
+                                "alt" : "name of the picture",
+                                "text" : "Sam and Migue see the new Disney plus series, Falcon and the Winter Soldier, stay and see what they think of this superhero series." ,
+                                "link": "https://www.youtube.com/embed/mk2sehfyp80",
+                                "photo" : "img/reviews/falconWinterSoldier.png"
+                            }
+                        ]
+                    
+                },
+                {
+                    "id" : "legionOfSinners",
+                    "episodes" : 
+                        [
+                        
+                            {
+                                "name":"Legion Of Sinners",
+                                "alt" : "name of the picture",
+                                "text" : "In the Middle Ages, at the time of the Crusades, the people rise up, the oppressed rebel, the saints and pagans fight against a kingdom and an order that claims to act in the name of heaven, but the fate of this war it will depend on the loyalty of those who have been chosen" ,
+                                "link": "https://tapas.io/series/LEGION-DE-PECADORES-/info",
+                                "photo" : "img/series/portadaComic.png"
+                            }
+                        ]
+                }
+            ]
+    }
+]

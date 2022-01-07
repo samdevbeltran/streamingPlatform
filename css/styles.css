@@ -1,0 +1,195 @@
+.titleSeriesItem,.textDescriptionSeries >p,.textDescriptionContainer > p,h3 ,span{
+
+    font-family: 'Pattaya', sans-serif;
+}
+
+body {
+    
+    background-color: #000000;
+}
+main{
+
+    padding: 0 20px 0 20px;
+    margin-bottom: 10%;
+}
+
+header{
+
+    text-align: center;
+    margin-bottom: 10%;    
+}
+
+.flexCointainer{
+
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.titleSeriesItem{
+
+    font-size: 20px; 
+    text-align: center;
+}
+
+.material-icons-outlined{
+
+    color: white;
+}
+
+p, li {
+
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    color: white;
+    font-family: 'Jost', sans-serif;    
+}
+
+#headerPicture{
+
+    width: 51vw;
+    height: 51vh;
+}
+
+.iframeVideo{
+
+    display: block;
+    background: #000;
+    border: none;
+    height: 100vh;
+    width: 100vw;
+}
+
+#seriesContainer{
+
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.imgSeries{
+
+    width: 20vw;
+    height: 32vh;
+}
+
+.seriesItem{
+
+    margin: 0 2%;
+    padding: 2px;
+    background-color: rgba(5, 5, 5, 0.904);
+}
+
+.divEpisodeContainer{
+
+    margin: 0 5%;    
+}
+
+.episodeContainerItem{
+
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 2% 0;
+}
+.episodeHeaderImg{
+
+    width: 75%;
+    height: 50vh;
+}
+.episodeImg{
+
+    width: 25vw;
+    height: 32vh;
+}
+
+.episodePhotoContainer{
+
+    margin: 2%;
+}
+
+.episodeTextContainer{
+
+    margin: 1% 5%;
+    padding: 0;
+}
+
+.episodeTextContainer > h3{
+
+    font-size: 20px;
+    color:white;
+}
+
+.zoom{
+
+    transition: transform .2s;
+}
+
+.zoom:hover {
+
+    -ms-transform: scale(1.18); /* IE 9 */
+    -webkit-transform: scale(1.18); /* Safari 3-8 */
+    transform: scale(1.18); 
+}
+
+.episodePhotoContainer:hover{
+
+    border-color: white;
+}
+  
+.seriesItem{
+
+    border-color: white;
+}
+
+.textDescription{
+
+    text-align: center;
+}
+
+.textDescriptionContainer > p{
+
+    font-size: 3em;
+}
+
+.textDescriptionSeries{
+
+    padding: 8% 3% 0% 3%;
+}
+
+.textDescriptionSeries >p {
+
+    font-size: 2em;
+}
+
+.homeBtn{
+
+    margin: 2%;    
+}
+
+.homeBtn > a{
+
+    margin: 0 1%;
+    text-decoration: none;
+}
+
+.homeBtn > a:hover{
+
+    font-size: 20px ;
+    z-index: 1;
+}
+
+footer > div{
+
+    text-align: center;    
+}
+
+footer{
+    
+    height: 13vh;
+    background-color:rgba(22, 22, 22, 0.938);
+    color: white;
+}
+
+footer > p{
+    
+    margin: 0;
+}

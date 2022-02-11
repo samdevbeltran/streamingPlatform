@@ -1,9 +1,10 @@
 import { renderHomeView,getSeries,insertVideo,renderHeaderDescriptionHtml,insertWelcomeDescription }from "./viewController.js";
 
-
+var x = window.matchMedia("(min-width: 992px)")
 renderHomeView();
 
 document.addEventListener("click", function (click) {
+    window.scrollTo(0, 0);
     if(click.target.className == "imgSeries"){
         getSeries(click.target.id);
     }
@@ -16,14 +17,28 @@ document.addEventListener("click", function (click) {
     
 });
 
-document.addEventListener("mouseover",function(e){
-    
-    if(e.target.className == "imgSeries" ||  e.target.className == "seriesItem zoom"){
-        renderHeaderDescriptionHtml(e.target.id);
-    }else{
-        insertWelcomeDescription();
-    }
-});
+function responsoveLargeFunction(x) {
+  
+    document.addEventListener("mouseover",function(e){
+        if (x.matches) {
+            if(e.target.className == "imgSeries" ||  e.target.className == "seriesItem zoom"){
+                renderHeaderDescriptionHtml(e.target.id,true);
+            }else{
+                insertWelcomeDescription();
+            }
+        }else{
+            if(e.target.className == "imgSeries" ||  e.target.className == "seriesItem zoom"){
+                renderHeaderDescriptionHtml(e.target.id,false);
+                insertWelcomeDescription();
+            }    
+        }
+    });
+}
+
+responsoveLargeFunction(x)
+x.addListener(responsoveLargeFunction)
+
+
 
 
 

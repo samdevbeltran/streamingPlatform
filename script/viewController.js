@@ -25,24 +25,50 @@ export function getSeries(id){
         let altId = series[0].id;
 
         emptyMaiContainer();
+        mainContainer.innerHTML += '<div class="homeBtn">'+
+                        '<a href="index.html">'+
+                            '<span style="color: white;">HOME</span>'+
+                        '</a>'+
+                    '</div>'+
+                    '<div>';
+
         headerElement.innerHTML = "";
+        headerElement.setAttribute("class","sticky-section mb-5")
         divEpisodeContainer.className = "divEpisodeContainer";
-        headerElement.innerHTML += '<img  class="episodeHeaderImg" src="'+seriePic+'">';
+
+        headerElement.innerHTML += 
+                    // '<div class="homeBtn ">'+
+                    //     '<a href="index.html">'+
+                    //         '<span style="color: white;">HOME</span>'+
+                    //     '</a>'+
+                    // '</div>'+
+                    // '<div>'+
+                    
+                    //'<div class="episodeHeaderImg" style="background:url( '+ '\''+seriePic+'\''+')">'+
+                    '<div class="episodeHeaderImg" >'+
+                        '<img  class="episodeHeaderImg" src="'+seriePic+'">'+
+                    '</div>'+
+                '</div>'
+
+        //headerElement.innerHTML += '<img  class="episodeHeaderImg" src="'+seriePic+'">';
         divEpisodeContainer.appendChild(headerElement);
 
         series[0]["episodes"].map((element ,index )=>{
 
             
-            html = '<div class="episodeContainerItem">'+
-                        '<a href="javascript:void(0)">'+
-                            '<div class="episodePhotoContainer zoom">'+
-                                '<img id="'+index+'" src="'+element.photo+'" alt="'+altId+'" class="episodeImg">'+                                
-                            '</div>'+
-                        '</a>'+
-                        '<div class="episodeTextContainer">'+
+            html = '<div class="row list-item">'+
+                        '<div class="col-sm-12 col-lg-6">'+
+                            '<a href="javascript:void(0)">'+
+                                '<div class="episodePhotoContainer zoom">'+
+                                    '<img id="'+index+'" src="'+element.photo+'" alt="'+altId+'" class="episodeImg">'+                                
+                                '</div>'+
+                            '</a>'+
+                        '</div>'+
+                        '<div class="episodeTextContainer col-sm-12 col-lg-6">'+
                             '<h3> '+(index+1)+'. '+element.name+'</h3>'+
                             '<p>'+element.text+'</p>'+
                         '</div>'
+
                     '</div>'; 
 
             divEpisodeContainer.innerHTML += html;    
@@ -90,7 +116,8 @@ function removeEpisodesBtn(){
 
 function renderHeaderHtml(api){
     
-    getElementById("headerPicture").src = api[0]["header"].photo; 
+    getElementById("headerPicture").src = "img/hermanoStoryMakersBanner2.jpeg";
+    //getElementById("headerPicture").src = api[0]["header"].photo; 
     getElementById("headerPicture").alt = api[0]["header"].alt;
     insertWelcomeDescription();   
 }
@@ -103,44 +130,61 @@ export function insertWelcomeDescription(){
     }
 }
 
-export function renderHeaderDescriptionHtml(idSeries){
+export function renderHeaderDescriptionHtml(idSeries,descriptionBool){
     
     let seriesInfo = getApiInfo(apiSeriesOne[0],"catalog",idSeries)[0];
 
-    if(seriesInfo){
+    if(descriptionBool){
+        if(seriesInfo){
 
-        let html = '<div class="textDescriptionSeries">'+
-                    '<p class="textDescription">'+seriesInfo.text+'</p>'+
-                '</div>'
-        
-        getElementById("descriptionSeries").innerHTML = html; 
+            let html = '<div class="textDescriptionSeries">'+
+                        '<p class="textDescription">'+seriesInfo.text+'</p>'+
+                    '</div>'
+            
+            getElementById("descriptionSeries").innerHTML = html; 
+        }
+    }else{
+        getElementById("descriptionSeries").innerHTML = ""
     }
+    
 }
 export function renderHeaderDescriptionOff(idSeries){
     
     let seriesInfo = getApiInfo(apiSeriesOne[0],"catalog",idSeries)[0];
-    getElementById("bannerText").innerHTML = seriesInfo.text;
+    if(seriesInfo.text != undefined){
+        getElementById("bannerText").innerHTML = seriesInfo.text;    
+    }
+    
 }
 
 function renderSeriesHtml(api){
-
-    let html;
+    let counter = 0
+    let html ="";
     let seriesContainer = getElementById("seriesContainer");
     api.shift();
 
     api[0]["catalog"].forEach((element,index) => {
-        
-        html = '<div class="seriesItem zoom">'+
-                    '<div id="'+element.id+'">'+    
-                        '<p class="titleSeriesItem">'+element.name+'</p>'+
+
+        if(counter == 0) html += '<div class="row col-lg-6 col-sm-12">';
+    
+        html += '<div class="seriesItem zoom col-lg-6 col-sm-6">'+
+                    //'<div id="'+element.id+'">'+    
+                        //'<p class="titleSeriesItem">'+element.name+'</p>'+
                         '<a href="javascript:void(0)">'+
                             '<img src="'+element.photo+'" alt="'+element.photo+'" id="'+element.id+'" class="imgSeries">'+
                         '</a>'+
-                    '</div>'+    
-                '/<div>';
-        
-                seriesContainer.innerHTML += html;
+                    //'</div>'+    
+                '</div>';
+
+        counter ++;
+        if(counter == 2){
+            html += '</div>';
+            counter = 0;
+        } 
+
+                //seriesContainer.innerHTML += html;
     });
+    seriesContainer.innerHTML += html;
 }
 
 export function renderHomeView(){

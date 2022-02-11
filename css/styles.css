@@ -3,26 +3,22 @@
     font-family: 'Pattaya', sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
     
     background-color: #000000;
 }
 main{
-
-    padding: 0 20px 0 20px;
     margin-bottom: 10%;
 }
 
-header{
 
-    text-align: center;
-    margin-bottom: 10%;    
-}
+header div{
+    background-color: black;
 
-.flexCointainer{
-
-    display: flex;
-    flex-wrap: nowrap;
 }
 
 .titleSeriesItem{
@@ -47,8 +43,8 @@ p, li {
 
 #headerPicture{
 
-    width: 51vw;
-    height: 51vh;
+    width: 100%;
+
 }
 
 .iframeVideo{
@@ -60,23 +56,30 @@ p, li {
     width: 100vw;
 }
 
-#seriesContainer{
+/*#seriesContainer{
 
     display: flex;
     flex-wrap: nowrap;
+}*/
+
+#seriesContainer div{
+    margin: 2px auto;
 }
 
 .imgSeries{
 
-    width: 20vw;
-    height: 32vh;
+    width: 100%;
+    height: 270px;
 }
 
 .seriesItem{
-
-    margin: 0 2%;
+    width: 50%;
+    border-radius: 10px;
     padding: 2px;
     background-color: rgba(5, 5, 5, 0.904);
+}
+.seriesItem>a>img{
+    border-radius: 10px;    
 }
 
 .divEpisodeContainer{
@@ -84,21 +87,20 @@ p, li {
     margin: 0 5%;    
 }
 
-.episodeContainerItem{
-
-    display: flex;
-    flex-wrap: nowrap;
-    margin: 2% 0;
-}
 .episodeHeaderImg{
 
-    width: 75%;
-    height: 50vh;
-}
-.episodeImg{
+    width: 100%;
+    //height: 310px;
+    box-shadow: 0px 5px 9px #ffffff78;
 
-    width: 25vw;
-    height: 32vh;
+}
+
+.episodeHeaderImg{
+    max-width: 100%;
+}
+
+.episodeImg{
+    width: 100%;
 }
 
 .episodePhotoContainer{
@@ -107,9 +109,7 @@ p, li {
 }
 
 .episodeTextContainer{
-
-    margin: 1% 5%;
-    padding: 0;
+    padding: 0 2%;
 }
 
 .episodeTextContainer > h3{
@@ -118,16 +118,22 @@ p, li {
     color:white;
 }
 
+.list-item{
+    margin-bottom: 3%;
+}
+
 .zoom{
 
     transition: transform .2s;
 }
 
 .zoom:hover {
-
+    -webkit-box-shadow: 1px -1px 9px 4px #c33942;
+    -ms-box-shadow: 1px -1px 9px 4px #c33942;
     -ms-transform: scale(1.18); /* IE 9 */
     -webkit-transform: scale(1.18); /* Safari 3-8 */
     transform: scale(1.18); 
+    z-index: 2;
 }
 
 .episodePhotoContainer:hover{
@@ -135,10 +141,9 @@ p, li {
     border-color: white;
 }
   
-.seriesItem{
-
-    border-color: white;
-}
+#descriptionSeries{
+    padding: 4% 0px;
+}  
 
 .textDescription{
 
@@ -163,6 +168,11 @@ p, li {
 .homeBtn{
 
     margin: 2%;    
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1021; 
+    background-color: black;
 }
 
 .homeBtn > a{
@@ -192,4 +202,83 @@ footer{
 footer > p{
     
     margin: 0;
+}
+@media(min-width:426px )and (max-width: 991px){
+
+    .textDescriptionContainer p {
+        font-size: 171% !important;
+    }
+}
+
+@media(min-width:992px ){
+
+    header .container > div{        
+        height: 435px;
+    }
+}
+
+@media(min-width: 768px){
+    .divEpisodeContainer{
+        max-width: 79%;
+        margin: auto;
+    }
+    .list-item > div{
+        padding: 0 7%;
+    }
+
+}
+@media(min-width: 426px){
+
+    main{
+        padding: 0 20px;
+    }
+    #headerPicture{  
+        height: 341px;
+    }
+    
+}
+
+@media(max-width: 425px){
+    main{
+        padding: 0;
+    }
+    #headerPicture{   
+        height: 278px;
+    }
+
+    .textDescriptionContainer p {
+        font-size: 17px;
+    }
+
+    #descriptionSeries{
+        padding: 0;
+    }
+    .imgSeries{
+        height: 159px;
+    }
+    .textDescriptionSeries >p {
+        font-size: 1.3em;
+    }
+    .episodeHeaderImg {
+        max-width: 100%;
+        height: 173px;
+    }
+    .episodeTextContainer{
+        text-align: center;
+        padding: 0 9%;
+    }
+    .episodeTextContainer p{
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    .sticky-section{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 24px;
+        z-index: 1020;    
+    }
+    header{
+        margin-bottom: 23%;
+    }
+    
 }

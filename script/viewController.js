@@ -25,32 +25,17 @@ export function getSeries(id){
         let altId = series[0].id;
 
         emptyMaiContainer();
-        mainContainer.innerHTML += '<div class="homeBtn">'+
-                        '<a href="index.html">'+
-                            '<span style="color: white;">HOME</span>'+
-                        '</a>'+
-                    '</div>'+
-                    '<div>';
+        mainContainer.innerHTML += get_home_button();
 
         headerElement.innerHTML = "";
         headerElement.setAttribute("class","sticky-section mb-5")
         divEpisodeContainer.className = "divEpisodeContainer";
 
         headerElement.innerHTML += 
-                    // '<div class="homeBtn ">'+
-                    //     '<a href="index.html">'+
-                    //         '<span style="color: white;">HOME</span>'+
-                    //     '</a>'+
-                    // '</div>'+
-                    // '<div>'+
-                    
-                    //'<div class="episodeHeaderImg" style="background:url( '+ '\''+seriePic+'\''+')">'+
                     '<div class="episodeHeaderImg" >'+
                         '<img  class="episodeHeaderImg" src="'+seriePic+'">'+
-                    '</div>'+
-                '</div>'
-
-        //headerElement.innerHTML += '<img  class="episodeHeaderImg" src="'+seriePic+'">';
+                    '</div>'
+                
         divEpisodeContainer.appendChild(headerElement);
 
         series[0]["episodes"].map((element ,index )=>{
@@ -80,17 +65,15 @@ export function getSeries(id){
 
 export function insertVideo(id,seriesId){
     
-    emptyMaiContainer();
-    
+    let header = document.querySelector("header");
     let series = getApiInfo(apiSeriesOne[1],"series",seriesId)[0];
     let episodeInfo = series["episodes"][id];
     let episodeVideoHtml;
 
-    episodeVideoHtml = '<iframe class="iframeVideo"  src="'+episodeInfo.link+'" title="'+episodeInfo.name+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>'+
-    '</iframe>';
-    mainContainer.innerHTML = episodeVideoHtml;
-    
-    insertEpisodesBtn(seriesId);
+    episodeVideoHtml = '<div style="padding:5%;"><iframe class="iframeVideo"  src="'+episodeInfo.link+'" title="'+episodeInfo.name+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></div></iframe>';
+
+    header.innerHTML = ""
+    header.innerHTML += episodeVideoHtml
 }
 
 function insertEpisodesBtn(seriesId){
@@ -117,7 +100,6 @@ function removeEpisodesBtn(){
 function renderHeaderHtml(api){
     
     getElementById("headerPicture").src = "img/hermanoStoryMakersBanner2.jpeg";
-    //getElementById("headerPicture").src = api[0]["header"].photo; 
     getElementById("headerPicture").alt = api[0]["header"].alt;
     insertWelcomeDescription();   
 }
@@ -168,12 +150,9 @@ function renderSeriesHtml(api){
         if(counter == 0) html += '<div class="row col-lg-6 col-sm-12">';
     
         html += '<div class="seriesItem zoom col-lg-6 col-sm-6">'+
-                    //'<div id="'+element.id+'">'+    
-                        //'<p class="titleSeriesItem">'+element.name+'</p>'+
-                        '<a href="javascript:void(0)">'+
-                            '<img src="'+element.photo+'" alt="'+element.photo+'" id="'+element.id+'" class="imgSeries">'+
-                        '</a>'+
-                    //'</div>'+    
+                    '<a href="javascript:void(0)">'+
+                        '<img src="'+element.photo+'" alt="'+element.photo+'" id="'+element.id+'" class="imgSeries">'+
+                    '</a>'+
                 '</div>';
 
         counter ++;
@@ -181,8 +160,6 @@ function renderSeriesHtml(api){
             html += '</div>';
             counter = 0;
         } 
-
-                //seriesContainer.innerHTML += html;
     });
     seriesContainer.innerHTML += html;
 }
@@ -206,4 +183,12 @@ export function renderHomeView(){
             renderSeriesHtml(apiSeriesOne);
     });
     
+}
+
+function get_home_button(){
+    return '<div class="homeBtn">'+
+        '<a href="index.html">'+
+            '<span style="color: white;">HOME</span>'+
+        '</a>'+
+    '<div>';
 }

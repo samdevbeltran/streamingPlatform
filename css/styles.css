@@ -52,8 +52,8 @@ p, li {
     display: block;
     background: #000;
     border: none;
-    height: 100vh;
-    width: 100vw;
+    height: 438px;
+    width: 100%;
 }
 
 /*#seriesContainer{
@@ -78,7 +78,7 @@ p, li {
     padding: 2px;
     background-color: rgba(5, 5, 5, 0.904);
 }
-.seriesItem>a>img{
+.seriesItem > a > img{
     border-radius: 10px;    
 }
 
@@ -197,6 +197,7 @@ footer{
     height: 13vh;
     background-color:rgba(22, 22, 22, 0.938);
     color: white;
+
 }
 
 footer > p{
@@ -237,7 +238,11 @@ footer > p{
     }
     
 }
-
+@media(max-width: 796px){
+    .iframeVideo{
+        height: 207px;
+    }
+}
 @media(max-width: 425px){
     main{
         padding: 0;

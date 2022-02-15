@@ -56,11 +56,6 @@ p, li {
     width: 100%;
 }
 
-/*#seriesContainer{
-
-    display: flex;
-    flex-wrap: nowrap;
-}*/
 
 #seriesContainer div{
     margin: 2px auto;
@@ -163,6 +158,11 @@ p, li {
 .textDescriptionSeries >p {
 
     font-size: 2em;
+}
+
+.seriesNameStyle{
+    color:rgb(223 212 212 / 82%);
+    text-align: center;
 }
 
 .homeBtn{

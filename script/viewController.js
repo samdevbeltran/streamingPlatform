@@ -99,7 +99,6 @@ function removeEpisodesBtn(){
 
 function renderHeaderHtml(api){
     
-    getElementById("headerPicture").src = "img/hermanoStoryMakersBanner2.jpeg";
     getElementById("headerPicture").alt = api[0]["header"].alt;
     insertWelcomeDescription();   
 }
@@ -107,8 +106,10 @@ function renderHeaderHtml(api){
 export function insertWelcomeDescription(){
 
     if(getElementById("descriptionSeries")){
+        if(welcomeText != undefined){
+            getElementById("descriptionSeries").innerHTML = '<div class="textDescriptionContainer"><p class="textDescription"> '+welcomeText+'</p></div>';    
+        }
         
-        getElementById("descriptionSeries").innerHTML = '<div class="textDescriptionContainer"><p class="textDescription"> '+welcomeText+'</p></div>';
     }
 }
 
@@ -153,6 +154,7 @@ function renderSeriesHtml(api){
                     '<a href="javascript:void(0)">'+
                         '<img src="'+element.photo+'" alt="'+element.photo+'" id="'+element.id+'" class="imgSeries">'+
                     '</a>'+
+                    '<p class="seriesNameStyle">'+element.name+'</p>'+
                 '</div>';
 
         counter ++;
@@ -161,27 +163,38 @@ function renderSeriesHtml(api){
             counter = 0;
         } 
     });
-    seriesContainer.innerHTML += html;
+    seriesContainer.innerHTML += '<h2 style="color:white">Series</h2>' + html;
 }
 
 export function renderHomeView(){
     
-    fetch(url).then(data => {
+    if(sessionStorage.getItem("apiSeriesOne") == null){
+        fetch(url).then(data => {
  
-        if(data.ok){
- 
-            return data.json();
-        }else{
- 
-            console.log("sorry the info was not able to load ");
+            if(data.ok){
+     
+                return data.json();
+            }else{
+     
+                console.log("sorry the info was not able to load ");
+            }
+        }).then(series => {
+                
+                sessionStorage.setItem("apiSeriesOne", JSON.stringify(series));
+                apiSeriesOne = JSON.parse(sessionStorage.getItem("apiSeriesOne"))
+                welcomeText = apiSeriesOne[0]["header"].text;
+                renderHeaderHtml(apiSeriesOne);
+                renderSeriesHtml(apiSeriesOne);
+        });    
+    }else{
+    
+        if(apiSeriesOne.length == 0){
+            set_mainVariables();
         }
-    }).then(series => {
- 
-            apiSeriesOne = series;
-            welcomeText = apiSeriesOne[0]["header"].text;
-            renderHeaderHtml(apiSeriesOne);
-            renderSeriesHtml(apiSeriesOne);
-    });
+        renderHeaderHtml(apiSeriesOne);
+        renderSeriesHtml(apiSeriesOne);
+    }
+    
     
 }
 
@@ -191,4 +204,9 @@ function get_home_button(){
             '<span style="color: white;">HOME</span>'+
         '</a>'+
     '<div>';
+}
+
+function set_mainVariables(){
+    apiSeriesOne = JSON.parse(sessionStorage.getItem("apiSeriesOne"))
+    welcomeText = apiSeriesOne[0]["header"].text;
 }
